@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class CaesarCipherService {
 
     private static final char[] LOVER_CASE_CHARACTERS = { 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж',
@@ -8,12 +6,11 @@ public class CaesarCipherService {
     private static final char[] UPPER_CASE_CHARACTERS = { 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж',
             'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х',
             'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я' };
-    
-    public static String decipherCaesar(String cipherPhrase) {
+
+    static final int CHARACTERS_IN_ALPHABET = 32;
+
+    public static String decipherCaesar(String cipherPhrase, int step) {
         char[] textChar = cipherPhrase.toCharArray();
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter key: ");
-        int step = scanner.nextInt();
         for (int i = 0; i < textChar.length - 1; i++) {
             int index = 0;
             boolean isLetter = !Character.isWhitespace(textChar[i]);
